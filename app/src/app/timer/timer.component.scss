@@ -1,8 +1,11 @@
 .display {
   display: flex;
   justify-content: center;
-  color: green;
   font-size: 2rem;
+  color: gray;
+}
+.timer-started {
+  color: green;
 }
 .control {
   display: flex;
