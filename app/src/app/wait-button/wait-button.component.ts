@@ -7,6 +7,8 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
+import { buffer, filter, throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-wait-button',
@@ -21,15 +23,17 @@ export class WaitButtonComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    //// todo у  Observable нет fromEvent??? тут не работает
-    // let cliskStream$ = Observable.fromEvent(
-    //   this.element.nativeElement,
-    //   'click'
-    // );
-    // cliskStream$
-    //   .buffer(cliskStream$.debounce(300))
-    //   /*тут как-то отфильтровать что было >=2 нажатия*/
-    //   .forEach(this.clickTwice.emit(null));
+    //https://www.learnrxjs.io/learn-rxjs/operators/transformation/buffer
+    let clicks$ = fromEvent(this.element.nativeElement, 'click');
+    clicks$
+      .pipe(
+        buffer(clicks$.pipe(throttleTime(300))),
+        filter((clickArray) => clickArray.length > 1)
+      )
+      .subscribe(() => {
+        console.log('click twise');
+        this.clickTwice.emit(null);
+      });
   }
 
   @Output()
