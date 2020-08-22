@@ -1,0 +1,13 @@
+.display {
+  display: flex;
+  justify-content: center;
+  color: green;
+  font-size: 2rem;
+}
+.control {
+  display: flex;
+  justify-content: center;
+  .btn {
+    margin: 0.5rem;
+  }
+}
