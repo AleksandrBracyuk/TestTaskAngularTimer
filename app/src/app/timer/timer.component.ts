@@ -20,11 +20,11 @@ export class TimerComponent implements OnInit {
   ngOnInit(): void {}
 
   showTime() {
-    var hour = Math.floor(this.secondsAfterStart / (60 * 60));
-    var minute = Math.floor((this.secondsAfterStart - hour * 60 * 60) / 60);
-    var second = this.secondsAfterStart - hour * 60 * 60 - minute * 60;
+    let hour = Math.floor(this.secondsAfterStart / (60 * 60));
+    let minute = Math.floor((this.secondsAfterStart - hour * 60 * 60) / 60);
+    let second = this.secondsAfterStart - hour * 60 * 60 - minute * 60;
 
-    var toZeroFirst = (x: number) => ('0' + x).slice(-2);
+    let toZeroFirst = (x: number) => ('0' + x).slice(-2);
 
     this.hour = toZeroFirst(hour);
     this.minute = toZeroFirst(minute);
@@ -52,6 +52,8 @@ export class TimerComponent implements OnInit {
   pause() {
     clearInterval(this.interval);
     this.isStarted = false;
+    // без этой перерисовки возникает ощущение что Wait как-то тормозит:
+    this.showTime();
   }
   stop() {
     clearInterval(this.interval);

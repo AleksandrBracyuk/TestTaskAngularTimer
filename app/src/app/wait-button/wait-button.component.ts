@@ -25,7 +25,6 @@ export class WaitButtonComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    //https://www.learnrxjs.io/learn-rxjs/operators/transformation/buffer
     let clicks$ = fromEvent(this.element.nativeElement, 'click');
     clicks$
       .pipe(
@@ -33,7 +32,6 @@ export class WaitButtonComponent implements OnInit, AfterViewInit {
         filter((clickArray) => clickArray.length > 1)
       )
       .subscribe(() => {
-        // console.log('click twise');
         this.clickTwice.emit(null);
       });
   }
