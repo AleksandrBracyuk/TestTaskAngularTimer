@@ -10,6 +10,7 @@
     <button type="button" class="btn" [class.active]="!isStarted" (click)="switchStart()"><span>Start
         / Stop</span></button>
     <app-wait-button [isActive]="isStarted" (clickTwice)="pause()"><span>Wait</span></app-wait-button>
-    <button type="button" class="btn" [class.active]="isStarted" (click)="reset()"><span>Reset</span></button>
+    <button type="button" class="btn" [class.active]="isStarted||secondsAfterStart>0"
+      (click)="reset()"><span>Reset</span></button>
   </div>
 </div>
