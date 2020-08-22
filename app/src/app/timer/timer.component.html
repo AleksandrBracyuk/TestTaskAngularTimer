@@ -1,5 +1,5 @@
 <div class="timer">
-  <div class="display" [class.isActive]="isStarted">
+  <div class="display" [class.is-active]="isStarted">
     <div class="hour"><span>{{hour}}</span></div>
     <div class="colon"><span>:</span></div>
     <div class="minute"><span>{{minute}}</span></div>
@@ -7,9 +7,9 @@
     <div class="second"><span>{{second}}</span></div>
   </div>
   <div class="control">
-    <button type="button" class="btn start-stop" [class.isActive]="!isStarted" (click)="switchStart()"><span>Start
+    <button type="button" class="btn start-stop" [class.is-active]="!isStarted" (click)="switchStart()"><span>Start
         / Stop</span></button>
-    <button type="button" class="btn wait" [class.isActive]="isStarted" (click)="pause()"><span>Wait</span></button>
-    <button type="button" class="btn reset" [class.isActive]="isStarted" (click)="reset()"><span>Reset</span></button>
+    <button type="button" class="btn wait" [class.is-active]="isStarted" (click)="pause()"><span>Wait</span></button>
+    <button type="button" class="btn reset" [class.is-active]="isStarted" (click)="reset()"><span>Reset</span></button>
   </div>
 </div>
