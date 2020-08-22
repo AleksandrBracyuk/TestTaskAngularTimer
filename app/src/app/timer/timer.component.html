@@ -10,6 +10,10 @@
     <button type="button" class="btn start-stop" [class.is-active]="!isStarted" (click)="switchStart()"><span>Start
         / Stop</span></button>
     <button type="button" class="btn wait" [class.is-active]="isStarted" (click)="pause()"><span>Wait</span></button>
+
+    <!-- todo не применяется класс isActive -->
+    <app-wait-button class="btn wait" [class.is-active]="isStarted" (clickTwice)="pause()"></app-wait-button>
+
     <button type="button" class="btn reset" [class.is-active]="isStarted" (click)="reset()"><span>Reset</span></button>
   </div>
 </div>
