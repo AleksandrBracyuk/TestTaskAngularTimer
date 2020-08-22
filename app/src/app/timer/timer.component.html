@@ -1,14 +1,14 @@
 <div class="timer">
   <div class="display">
-    <div class="hour"><span>10</span></div>
+    <div class="hour"><span>{{hour}}</span></div>
     <div class="colon"><span>:</span></div>
-    <div class="minute"><span>02</span></div>
+    <div class="minute"><span>{{minute}}</span></div>
     <div class="colon"><span>:</span></div>
-    <div class="second"><span>35</span></div>
+    <div class="second"><span>{{second}}</span></div>
   </div>
   <div class="control">
-    <button type="button" class="btn start-stop"><span>Start / Stop</span></button>
-    <button type="button" class="btn wait"><span>Wait</span></button>
-    <button type="button" class="btn reset"><span>Reset</span></button>
+    <button type="button" class="btn start-stop" (click)="switchStart()"><span>Start / Stop</span></button>
+    <button type="button" class="btn wait" (click)="pause()"><span>Wait</span></button>
+    <button type="button" class="btn reset" (click)="reset()"><span>Reset</span></button>
   </div>
 </div>
