@@ -17,6 +17,8 @@ import { buffer, filter, throttleTime } from 'rxjs/operators';
 })
 export class WaitButtonComponent implements OnInit, AfterViewInit {
   isActive: boolean;
+  @Output()
+  clickTwice: EventEmitter<any> = new EventEmitter();
 
   constructor(public element: ElementRef) {}
 
@@ -35,7 +37,4 @@ export class WaitButtonComponent implements OnInit, AfterViewInit {
         this.clickTwice.emit(null);
       });
   }
-
-  @Output()
-  clickTwice: EventEmitter<any> = new EventEmitter();
 }
