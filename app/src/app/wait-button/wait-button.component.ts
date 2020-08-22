@@ -6,7 +6,6 @@ import {
   EventEmitter,
   AfterViewInit,
 } from '@angular/core';
-import { Observable } from 'rxjs';
 import { fromEvent } from 'rxjs';
 import { buffer, filter, throttleTime } from 'rxjs/operators';
 
@@ -14,8 +13,11 @@ import { buffer, filter, throttleTime } from 'rxjs/operators';
   selector: 'app-wait-button',
   templateUrl: './wait-button.component.html',
   styleUrls: ['./wait-button.component.scss'],
+  inputs: ['isActive'],
 })
 export class WaitButtonComponent implements OnInit, AfterViewInit {
+  isActive: boolean;
+
   constructor(public element: ElementRef) {
     // https://habr.com/ru/post/425959/
   }
@@ -31,7 +33,7 @@ export class WaitButtonComponent implements OnInit, AfterViewInit {
         filter((clickArray) => clickArray.length > 1)
       )
       .subscribe(() => {
-        console.log('click twise');
+        // console.log('click twise');
         this.clickTwice.emit(null);
       });
   }
