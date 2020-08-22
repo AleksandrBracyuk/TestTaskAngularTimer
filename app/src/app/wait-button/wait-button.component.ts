@@ -18,9 +18,7 @@ import { buffer, filter, throttleTime } from 'rxjs/operators';
 export class WaitButtonComponent implements OnInit, AfterViewInit {
   isActive: boolean;
 
-  constructor(public element: ElementRef) {
-    // https://habr.com/ru/post/425959/
-  }
+  constructor(public element: ElementRef) {}
 
   ngOnInit(): void {}
 
